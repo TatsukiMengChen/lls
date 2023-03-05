@@ -1,0 +1,104 @@
+<script>
+var contents = [
+    "兰老师的弹幕被我林星浩承包力！", "林星浩祝老师身体健康", "25班黄辉亮祝老师生娃后风华依旧，越活越年轻！", "赖靖祝老师年年有今日，岁岁有今朝", "周飞洋祝老师母子平安", "您以朋友的身份走入课堂，把刻板的文字变成动人的情话，爱你，兰老师！", "老师好好带娃", "祝老师事事如意", "祝兰老师天天开心", "亲爱的兰老师变开sing", "祝老师福如东海，寿比南山", "生个女儿嫁给余名华！！！", "悠米嫁给吴姗！！！！！", "重要的事情说三遍，天天开心！天天开心！天天开心！", "祝兰老师和小天使平安顺遂", "祝老师阖家幸福", "愿你在你所爱的世界里能收获更多爱", "祝老师产程顺利，万事大吉！", "祝老师身体健康，万事如意！", "兰老师，我真的好喜欢语文！", "祝老师和宝宝都能健健康康，开开心心！", "愿您被整个世界温柔以待", "照花前后镜，花面交相映。新贴绣罗襦，双双金鹧鸪", "岁月漫长，心怀热爱，抬头有阳光，关关难过关关过", "随风潜入夜，润物细无声，祝老师身体健康！", "26班朱辉明祝老师生的儿子和我一样帅！", "提前祝宝宝生日快乐", "兰老师平平安安————羊蚊撞", "祝兰老师健康快乐，永远年轻漂亮！事事顺心！", "祝老师生产顺利，好好坐月子，养好身体", "孩子的小名要叫香香啊！", "感谢Thanks♪(･ω･)ﾉ", "每天开心一点点", "祝老师生个小天才", "老师你一定要幸福啊！", "祝老师生个乖宝宝，不会让您操心", "祝老师万事顺意，天天开心，少生气！", "兰老师，我爱你，就像老鼠爱大米！", "兰老师要天天天天天天天天天天天天天天天天天天天天开心！！！！！！！！"
+];
+</script>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>送给兰老师的祝福</title>
+    <style>
+    @font-face {
+        /* 我自己命名为 mFont */
+        font-family: "mFont";
+        src: url("font.ttf") format("truetype");
+    }
+
+    body {
+        user-select: none;
+        background-image: url(https://up.tt98.com/uploadfile/pcbz/2020-11-20/eec3a21a1c140e92febb843a831e47f0.jpg);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .top {
+        width: calc(100vw);
+        height: calc(80vh);
+        position: relative;
+    }
+
+    .bot {
+        width: 100%;
+        height: 97px;
+        background-color: #666666;
+        position: relative;
+    }
+
+    span {
+        position: absolute;
+        color: #000;
+        font-size: calc(10vh);
+        font-family: mFont;
+        line-height: 1.5em;
+        cursor: pointer;
+        white-space: nowrap;
+        text-shadow: 2px 2px 4px;
+    }
+    </style>
+</head>
+
+<body topmargin="0" oncontextmenu="return false" ondragstart="return false" onselectstart="return false" onselect="document.selection.empty()" oncopy="document.selection.empty()" onbeforecopy="return false" onmouseup="document.selection.empty()">
+    <div class="box">
+        <div class="top"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+    <script>
+    var colors = ["#ff8a80", "#ff5252", "#ff1744", "#ff80ab", "#ff4081", "#f50057", "#ea80fc", "#e040fb", "#d500f9", "#b388ff", "#7c4dff", "#651fff", "#8c9eff", "#536dfe", "#3d5afe", "#82b1ff", "#448aff", "#2979ff", "#80d8ff", "#40c4ff", "#00b0ff", "#84ffff", "#18ffff", "#00e5ff", "#a7ffeb", "#64ffda", "#1de9b6", "#b9f6ca", "#69f0ae", "#00e676", "#ccff90", "#b2ff59", "#76ff03", "#f4ff81", "#eeff41", "#c6ff00", "#ffff8d", "#ffff00", "#ffea00", "#ffe57f", "#ffd740", "#ffc400", "#ffd180", "#ffab40", "#ff9100", "#ff9e80", "#ff6e40", "#ff3d00"];
+
+
+    c = 0
+
+    function send(str) {
+        var randomColor = parseInt(Math.random() * colors.length);
+        var randomY = parseInt(Math.random() * 100);
+        $("<span></span>") //创建span
+            .text(str) //设置内容
+            .css("color", colors[randomColor]) //设置字体颜色
+            .css("left", $(window).width() + 50) //设置left值
+            .css("top", randomY + "%") //设置top值
+            .animate({
+                left: -($(this).width() + $(window).width())
+            }, $(this).width() * 15, "linear", function() {
+                console.log($(this).width())
+                //到了终点，需要删除
+                $(this).remove();
+            }) //添加动画
+            .appendTo(".top");
+    };
+    var a = 0
+    var b = contents.length
+
+    function explode() {
+        send(contents[a])
+        a += 1
+        if (a == b) {
+            a = 0
+        }
+        setTimeout(explode, 1000);
+    }
+    explode()
+    </script>
+</body>
+
+</html>
